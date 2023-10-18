@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Página</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        .nav {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav li {
+            margin-right: 20px;
+        }
+
+        .nav li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav li a:hover {
+            color: #FFA500;
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        #formulario {
+            display: none;
+        }
+
+        #formulario.show {
+            display: flex;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        form h1 {
+            margin-top: 0;
+        }
+
+        form label,
+        form input {
+            display: block;
+            margin: 10px 0;
+        }
+
+        form input[type="text"],
+        form input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Adiciona esta propriedade para incluir preenchimento e borda nas dimensões totais */
+        }
+
+        .form-group {
+            text-align: center;
+        }
+
+        .custom-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .button-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <i class="fas fa-home logo"></i>
+        <ul class="nav">
+            <li><a href="#" id="homeLink">Home</a></li>
+            <li><a href="#" id="formLink">Formulário</a></li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <div class="content" id="conteudoHome">
+            <!-- Conteúdo da página inicial -->
+            <h1>Bem-vindo à minha página</h1>
+            <p>Esta é uma página de exemplo com dois campos selecionáveis no canto superior.</p>
+        </div>
+        <div class="content" id="formulario">
+            <!-- Formulário -->
+            <form>
+                <h1>Preencha o formulário</h1>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group custom-button">
+                    <input type="submit" value="" class="custom-button" id="enviarButton">
+                    <span class="button-text">Enviar</span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('formLink').addEventListener('click', function() {
+            document.getElementById('conteudoHome').style.display = 'none';
+            document.getElementById('formulario').classList.add('show');
+        });
+
+        document.getElementById('homeLink').addEventListener('click', function() {
+            document.getElementById('conteudoHome').style.display = 'block';
+            document.getElementById('formulario').classList.remove('show');
+        });
+        
+        // Aqui você pode adicionar a lógica de envio do formulário usando JavaScript
+        document.getElementById('enviarButton').addEventListener('click', function() {
+            // Coloque a lógica de envio aqui
+            alert('Formulário enviado com sucesso!');
+        });
+    </script>
+</body>
+</html>
